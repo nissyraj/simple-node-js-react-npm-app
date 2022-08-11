@@ -17,6 +17,7 @@ pipeline {
                 sh './jenkins/scripts/test.sh'
             }
         }
+node{
         stage('SonarQube Analysis'){
         def scannerHome = tool 'sonarqube';
         withSonarQubeEnv('sonarqube'){
