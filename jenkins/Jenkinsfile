@@ -19,6 +19,7 @@ pipeline {
         }
 
         stage('SonarQube Analysis'){
+            steps {
         def scannerHome = tool 'sonarqube';
         withSonarQubeEnv('sonarqube'){
             sh "${scannerHome}/bin/sonar-scanner \
@@ -27,7 +28,7 @@ pipeline {
             -D sonar.projectKey=test \
             -D sonar.javabinaries=src \
             -D sonar.host.url=http://localhost:9000/"
-            
+            }
         }
         }
      }
