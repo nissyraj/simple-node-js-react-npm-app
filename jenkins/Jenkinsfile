@@ -17,7 +17,7 @@ pipeline {
                 sh './jenkins/scripts/test.sh'
             }
         }
-node{
+
         stage('SonarQube Analysis'){
         def scannerHome = tool 'sonarqube';
         withSonarQubeEnv('sonarqube'){
@@ -25,10 +25,11 @@ node{
             -D sonar.login=admin \
             -D sonar.password=admin \
             -D sonar.projectKey=test \
+            -D sonar.javabinaries=src \
             -D sonar.host.url=http://localhost:9000/"
             
         }
         }
      }
 }
-}
+
