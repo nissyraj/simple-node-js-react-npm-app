@@ -20,8 +20,8 @@ pipeline {
 
         stage('SonarQube Analysis'){
             steps {
+                script{
                 def scannerHome = tool 'sonarqube';
-                
                 withSonarQubeEnv('sonarqube'){
                     sh "${scannerHome}/bin/sonar-scanner \
                         -D sonar.login=admin \
@@ -30,7 +30,7 @@ pipeline {
                         -D sonar.javabinaries=src \
                         -D sonar.host.url=http://localhost:9000/"
                 }
-                
+                }
             }
         }
 }
