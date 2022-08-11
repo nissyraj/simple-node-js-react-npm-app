@@ -29,7 +29,7 @@ pipeline {
                         -D sonar.javabinaries=src \
                         -D sonar.host.url=http://localhost:9000/"
                 }
-                }
+                
             }
         }
 }
