@@ -22,15 +22,15 @@ pipeline {
             steps {
                 def scannerHome = tool 'sonarscanner';
                 withSonarQubeEnv('sonarqube'){
-                sh "${scannerHome}/bin/sonar-scanner \
-                -D sonar.login=admin \
-                -D sonar.password=admin \
-                -D sonar.projectKey=test \
-                -D sonar.javabinaries=src \
-                -D sonar.host.url=http://localhost:9000/"
-            }
+                    sh "${scannerHome}/bin/sonar-scanner \
+                        -D sonar.login=admin \
+                        -D sonar.password=admin \
+                        -D sonar.projectKey=test \
+                        -D sonar.javabinaries=src \
+                        -D sonar.host.url=http://localhost:9000/"
                 }
+                }
+            }
         }
-     }
 }
 
